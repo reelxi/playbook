@@ -1,0 +1,9 @@
+﻿- name: Mein Playbook
+    hosts: Inventory
+    become: yes
+    become_user: root
+    tasks:
+      - name: ensure application is running
+        service:
+          name: awx
+          state: started
