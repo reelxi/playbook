@@ -1,10 +1,12 @@
-﻿- name:  AwxCheck
-    hosts: Arbeitsgruppe Firma
-    become: yes
-    become_user: root
-    tasks:
-      - name: ensure application is running
-        service:
-          name: awx
-          state: started
-          
+﻿---
+- hosts: ComlineAG
+  become: yes
+  tasks:
+  - name: Install Nginx Latest
+    yum:
+      name: nginx
+      state: latest
+  - name: Start Nginx
+    service:
+      name: nginx
+      state: started
