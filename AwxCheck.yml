@@ -1,5 +1,5 @@
 ﻿---
-- hosts: ComlineAG
+- hosts: 192.168.2.23
   become: yes
   tasks:
   - name: Install Nginx Latest
