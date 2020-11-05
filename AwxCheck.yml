@@ -1,6 +1,6 @@
 ﻿---
 
 - hosts: all
-  gather_facts: false
+  gather_facts: true
   tasks:
     - ping:
