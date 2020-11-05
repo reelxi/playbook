@@ -1,8 +1,6 @@
-﻿- name: create_directory
-  hosts: all
-  tasks:
-
-   - name: Creates directory
-     file:
-       path: ~/demo_directory_created_through_awx
-       state: directory
+﻿- name: Test reachability to Machine using prod vrf and setting count and source
+  ansible.netcommon.net_ping:
+    dest: 192.168.2.23
+    source: loopback0
+    vrf: prod
+    count: 20
