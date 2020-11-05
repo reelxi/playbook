@@ -2,7 +2,7 @@
 # This playbook runs a basic DF command.
 
 -  name: Test reachability
-  ansible.netcommon.net_ping:
+  ping:
     dest: 192.168.2.23
     source: loopback0
     vrf: prod
