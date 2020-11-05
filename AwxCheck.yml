@@ -1,4 +1,4 @@
-﻿- name: AwxCheck
+﻿- name:  AwxCheck
     hosts: Arbeitsgruppe Firma
     become: yes
     become_user: root

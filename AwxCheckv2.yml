@@ -1,9 +1,0 @@
-﻿- name: AwxCheck
-    hosts: Arbeitsgruppe Firma
-    become: yes
-    become_user: root
-    tasks:
-      - name: ensure application is running
-        service:
-          name: awx
-          state: started
