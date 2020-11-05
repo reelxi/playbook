@@ -1,12 +1,8 @@
 ﻿---
-- hosts: 192.168.2.23
-  become: yes
+- name: Hello World!
+  hosts: all
+
   tasks:
-  - name: Install Nginx Latest
-    yum:
-      name: nginx
-      state: latest
-  - name: Start Nginx
-    service:
-      name: nginx
-      state: started
+
+  - name: Hello World!
+    shell: echo "Hi! Tower is working!"
