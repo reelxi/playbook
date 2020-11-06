@@ -1,0 +1,10 @@
+﻿---
+  - name: Playbook
+    hosts: all
+    become: yes
+    become_user: root
+    tasks:
+      - name: ensure awx is at the latest version
+        yum:
+          name: awx
+          state: latest
