@@ -1,0 +1,10 @@
+﻿---
+  - name: checkDate
+    hosts: all
+    gather_facts: yes
+    become: yes
+    become_user: root
+    tasks:
+      - name: Check if date is set.
+        shell:
+          cmd: date
