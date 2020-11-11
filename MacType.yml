@@ -13,20 +13,20 @@
 
     - name: Netzwerkkarte identifizieren ENS192
       command: ip l | grep -A 1 ens192 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo ens192 Mac Adresse gefunden"
-      command: echo ens192 >> /var/log/comline/MACTYPE
+      command: echo "ens192 Mac Adresse gefunden"
+      command: echo "ens192" >> /var/log/comline/MACTYPE
 
     - name: Netzwerkkarte identifizieren ENS3
       command: ip l | grep -A 1 ens3 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo ens3 Mac Adresse gefunden"
-      command: echo ens3 >> /var/log/comline/MACTYPE
+      command: echo "ens3 Mac Adresse gefunden"
+      command: echo "ens3" >> /var/log/comline/MACTYPE
 
     - name: Netzwerkkarte identifizieren ENP0S25
       command: ip l | grep -A 1 enp0s25 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo enp0s25 Mac Adresse gefunden"
-      command: echo enp0s25 >> /var/log/comline/MACTYPE
+      command: echo "enp0s25 Mac Adresse gefunden"
+      command: echo "enp0s25" >> /var/log/comline/MACTYPE
 
     - name: Netzwerkkarte identifizieren ENP1S0
       command: ip l | grep -A 1 enp1s0 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo enp1s0 Mac Adresse gefunden"
-      command: echo enp1s0 >> /var/log/comline/MACTYPE 
+      command: echo "enp1s0 Mac Adresse gefunden"
+      command: echo "enp1s0" >> /var/log/comline/MACTYPE 
