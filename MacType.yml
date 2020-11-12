@@ -1,6 +1,6 @@
 ---
 
-- name: Grap MAC Adress and MacType
+- name: Grap MAC Adress
   hosts: all
   pre_tasks:
     - debug:
