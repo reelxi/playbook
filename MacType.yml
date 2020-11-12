@@ -1,9 +1,9 @@
 ---
+
 - name: netzwerkkarte identifizieren
   hosts: all
   remote_user: root
 
   tasks:
   - name: Check for ENS33
-    command:
-      msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+    ping:
