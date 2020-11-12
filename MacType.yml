@@ -2,5 +2,6 @@
 
 - name: Grap MAC Adress and MacType
   hosts: all
-  remote_user: root
-  msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+  pre_tasks:
+    - debug:
+        msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
