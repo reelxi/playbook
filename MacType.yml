@@ -2,31 +2,8 @@
 - hosts: all
   tasks:
     - name: Check for ENP2S0
-      command: echo ip l | grep -A 1 enp2s0 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "enp2s0 Mac Adresse gefunden"
-      command: echo "enp2s0" >> /var/log/comline/MACTYPE
-
-    - name: Check for ENS33
-      command: echo ip l | grep -A 1 ens33 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "ens33 Mac Adresse gefunden"
-      command: echo "ens33" >> /var/log/comline/MACTYPE
-
-    - name: Check for ENS192
-      command: echo ip l | grep -A 1 ens192 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "ens192 Mac Adresse gefunden"
-      command: echo "ens192" >> /var/log/comline/MACTYPE
-
-    - name: Check for ENS3
-      command: echo ip l | grep -A 1 ens3 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "ens3 Mac Adresse gefunden"
-      command: echo "ens3" >> /var/log/comline/MACTYPE
-
-    - name: Check for ENP0S25
-      command: echo ip l | grep -A 1 enp0s25 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "enp0s25 Mac Adresse gefunden"
-      command: echo "enp0s25" >> /var/log/comline/MACTYPE
-
-    - name: Check for ENP1S0
-      command: echo ip l | grep -A 1 enp1s0 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
-      command: echo "enp1s0 Mac Adresse gefunden"
-      command: echo "enp1s0" >> /var/log/comline/MACTYPE 
+      command: ["ip l | grep -A 1 enp2s0 | grep "link\/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]""]
+      - name: MAC found
+        command: ["echo "enp2s0 Mac Adresse gefunden""]
+         - name: Store Data
+           command: ["echo "enp2s0" >> /var/log/comline/MACTYPE"]
