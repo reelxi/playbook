@@ -1,5 +1,5 @@
---- # Start Netzwerkkarte identifizieren
-- name: update web servers
+---
+- name:  Netzwerkkarte identifizieren
   hosts: all
   remote_user: root
   tasks:
