@@ -1,5 +1,5 @@
 --- # Start Netzwerkkarte identifizieren
 - hosts: all
   tasks:
-      - name: Check for ENS33
+        name: Check for ENS33
         command: ["echo"]
