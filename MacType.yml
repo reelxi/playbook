@@ -8,3 +8,4 @@
   tasks:
   - name: Check for ENS33
     command: echo ip l | grep -A 1 ens33 | grep "link/ether" | cut -d " " -f 6 | tr -d ":" | tr "[a-f]" "[A-F]"
+    debug:
