@@ -1,5 +1,7 @@
 --- # Start Netzwerkkarte identifizieren
-- hosts: all
+- name: update web servers
+  hosts: all
+  remote_user: root
   tasks:
         name: Check for ENS33
         command: ["echo"]
