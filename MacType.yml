@@ -5,6 +5,5 @@
   remote_user: root
   gather_facts: false
 
-
 - name: Grap MAC
-  debug: msg="{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+  msg="{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
