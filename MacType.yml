@@ -3,6 +3,7 @@
 - name: netzwerkkarte identifizieren
   hosts: all
   remote_user: root
+  gather_facts: false
 
   tasks:
   - name: Check for ENS33
