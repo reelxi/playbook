@@ -4,6 +4,3 @@
   hosts: all
   remote_user: root
   gather_facts: true
-
-  tasks:
-  - name: Check for ENS33
