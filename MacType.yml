@@ -2,7 +2,6 @@
 
 - name: Gather Network Information
   hosts: all
-  gather_facts: false
   tasks:
     - name: Create directory, if not exist
       file:
