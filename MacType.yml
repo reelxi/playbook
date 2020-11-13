@@ -1,8 +1,11 @@
 ---
 
-- name: Grap MAC Adress
+- name: NIC und MAC grap + store in file
   hosts: all
   pre_tasks:
+    - file:
+        path: /var/log/comline/MACTYPE
+        state: directory
     - debug:
         msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
     - copy:
