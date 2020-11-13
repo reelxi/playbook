@@ -1,14 +1,14 @@
 ---
 
-- name: Lookup NIC&MAC&IP, Paste into file
+- name: Gather Network Information
   hosts: all
   tasks:
-    - name: Create directory if not exist
+    - name: Create directory, if not exist
       file:
         path: /var/log/comline/MACTYPE
         state: directory
 
-    - name: Lookup & Create and paste into file
+    - name: Lookup info, create file and paste info
       copy:
               content: "Network information \n NIC: {{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} \n MAC: {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }} \n IP: {{ hostvars[inventory_hostname].ansible_default_ipv4.address }}"
-              dest: "/var/log/comline/MACTYPE/NicMac.yml"
+              dest: "/var/log/comline/MACTYPE/NetInfo.yml"
