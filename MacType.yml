@@ -3,6 +3,7 @@
 - name: Look for NIC and MAC
   hosts: all
   pre_tasks:
+
     - name: Create directory if not exist
     - file:
       path: /var/log/comline/MACTYPE
