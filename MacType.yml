@@ -8,6 +8,6 @@
         path: /var/log/comline/MACTYPE
         state: directory
       name: Paste NIC and MAC info into file
-        copy:
+      copy:
         content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
         dest: "/var/log/comline/MACTYPE/NicMac.yml"
