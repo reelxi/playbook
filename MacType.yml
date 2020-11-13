@@ -1,14 +1,17 @@
 ---
 
-- name: NIC und MAC grap + store in file
+- name: Look for NIC and MAC
   hosts: all
   pre_tasks:
-    - file:
-        path: /var/log/comline/MACTYPE
-        state: directory
-    - debug:
-        msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
-    - copy:
-        content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+    - name: Create directory if not exist
+       - file:
+           path: /var/log/comline/MACTYPE
+           state: directory
+         - name: Debug NIC and MAC once
+            - debug:
+               msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+               - name: Paste NIC and MAC info into file
+                  - copy:
+                     content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
         dest: "/var/log/comline/MACTYPE/NicMac.yml"
         
