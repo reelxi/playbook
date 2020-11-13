@@ -7,5 +7,5 @@
         msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
     - copy:
         content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
-        dest: /var/log/comline/MACTYPE
+        dest: "/var/log/comline/MACTYPE/"
         
