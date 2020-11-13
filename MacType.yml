@@ -4,5 +4,4 @@
   hosts: all
   pre_tasks:
     - debug:
-        msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
-        msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }}"
+        msg: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.interface }}"
