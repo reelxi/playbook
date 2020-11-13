@@ -2,12 +2,13 @@
 
 - name: Lookup NIC&MAC, Paste into file
   hosts: all
-  pre_tasks:
+  tasks:
     - name: Create directory if not exist
       file:
         path: /var/log/comline/MACTYPE
         state: directory
 
-    - copy:
-      content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
-      dest: "/var/log/comline/MACTYPE/NicMac.yml"
+    - name: Lookup & Paste
+      copy:
+              content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+              dest: "/var/log/comline/MACTYPE/NicMac.yml"
