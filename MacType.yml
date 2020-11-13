@@ -10,5 +10,8 @@
 
     - name: Lookup & Create and paste into file
       copy:
-              content: " NIC: {{ hostvars[inventory_hostname].ansible_default_ipv4.interface }} + MAC: {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }} + IP: {{ hostvars[inventory_hostname].ansible_default_ipv4.address }}"
+              content: " 
+NIC: {{ hostvars[inventory_hostname].ansible_default_ipv4.interface }}
+MAC: {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}
+IP: {{ hostvars[inventory_hostname].ansible_default_ipv4.address }}"
               dest: "/var/log/comline/MACTYPE/NicMac.yml"
