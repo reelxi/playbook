@@ -9,7 +9,7 @@
               content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.interface }}"
               dest: "/var/log/comline/NIC"
 
-    - name: Lookup MAC, create file and paste info
+    - name: Lookup MAC, create file and paste info in uppercase
       copy:
               content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress|upper }}"
               dest: "/var/log/comline/MAC"
