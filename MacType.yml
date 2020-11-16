@@ -2,6 +2,7 @@
 
 - name: Gather Network Information
   hosts: all
+  become: true
   tasks:
     - name: Lookup NIC, create file and paste info
       copy:
@@ -10,7 +11,7 @@
 
     - name: Lookup MAC, create file and paste info
       copy:
-              content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+              content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }} | replace('\:', '') | replace('\[a-f]:', '\[A-F]')"
               dest: "/var/log/comline/MAC"
 
     - name: Lookup IP, create file and paste info
