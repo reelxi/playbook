@@ -11,8 +11,14 @@
 
     - name: Lookup MAC, create file and paste info
       copy:
-              content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }} | replace('\:', '')"
+              content: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
               dest: "/var/log/comline/MAC"
+
+    - name: replacing dots
+      replace:
+        path: /var/log/comline/MAC
+        regexp: ':'
+        replace: ""
 
     - name: Lookup IP, create file and paste info
       copy:
