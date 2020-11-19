@@ -1,6 +1,6 @@
 ---
 
-- name: Enable and start of: Network Time Protocol (NTP)
+- name: Enable and start of (Network Time Protocol (NTP))
   hosts: all
   become: true
   tasks:
