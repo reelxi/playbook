@@ -1,0 +1,15 @@
+---
+
+- name: Enable and start of: Network Time Protocol (NTP)
+  hosts: all
+  become: true
+  tasks:
+    - name: Enable NTP Service to start on boot
+      service:
+        name: ntpd
+        enabled: yes
+
+    - name: Start NTP Service, if not started
+      service:
+        name: ntpd
+        state: started
