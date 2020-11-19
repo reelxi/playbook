@@ -1,9 +1,13 @@
 ---
 
-- name: Enable and start of (Network Time Protocol (NTP))
+- name: Install, enable and start of (Network Time Protocol (NTP))
   hosts: all
   become: true
   tasks:
+    - name: Install NTP Service on machine
+      yum:
+        name: ntp
+
     - name: Enable NTP Service to start on boot
       service:
         name: ntpd
