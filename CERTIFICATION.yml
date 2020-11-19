@@ -1,6 +1,6 @@
 ---
 
-- name: Certifikation installation
+- name: Establishing certificates
   hosts: all
   become: true
   tasks:
