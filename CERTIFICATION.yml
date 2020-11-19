@@ -4,12 +4,15 @@
   hosts: all
   become: true
   tasks:
-    - name: Install ca-certificates package
+    - name: Install the ca-certificates package
       yum:
         name: ca-certificates
 
-    - name: Enable dynamic CA configuration feature
-      shell: update-ca-trust enable
+    - name: Enable the dynamic CA configuration feature
+      shell: update-ca-trust force-enable
 
-    - name: Extract dynamic CA configuration feature
+    - name: Add it as a new file to /etc/pki/ca-trust/source/anchors/
+      shell: cp foo.crt /etc/pki/ca-trust/source/anchors/
+
+    - name: Use command
       shell: update-ca-trust extract
