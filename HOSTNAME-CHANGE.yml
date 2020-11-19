@@ -1,0 +1,11 @@
+---
+
+- name: Change hostname to modified MAC
+  hosts: all
+  become: true
+  tasks:
+    - name: Set hostname
+      shell:
+        
+
+# /var/log/comline/MAC .. auslesen und in set hostname packen
