@@ -1,0 +1,15 @@
+---
+
+- name: Certifikation installation
+  hosts: all
+  become: true
+  tasks:
+    - name: Install ca-certificates package
+      yum:
+        name: ca-certificates
+
+    - name: Enable dynamic CA configuration feature
+      shell: update-ca-trust enable
+
+    - name: Extract dynamic CA configuration feature
+      shell: update-ca-trust extract
