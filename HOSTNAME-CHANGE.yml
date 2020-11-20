@@ -8,3 +8,5 @@
       copy:
         src: /var/log/comline/MAC
         dest: /etc/hostname
+        owner: root
+        group: root
