@@ -1,0 +1,8 @@
+---
+
+- name: CHECK IF NIC IS ACTIVE
+  hosts: all
+  become: true
+  tasks:
+    - name: Lookup NIC, create file and paste info
+      
