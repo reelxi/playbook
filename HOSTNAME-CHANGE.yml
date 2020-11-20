@@ -5,7 +5,9 @@
   become: true
   tasks:
     - name: Set hostname
-      shell:
+      copy:
+        src: /var/log/comline/MAC
+        dest: /etc/hostname
         
 
 # /var/log/comline/MAC .. auslesen und in set hostname packen
