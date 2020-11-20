@@ -5,6 +5,4 @@
   become: true
   tasks:
     - name: Set hostname
-      copy:
-        src: /var/log/comline/MAC remote_src: yes
-        dest: /etc/hostname
+      shell: cp /var/log/comline/MAC /etc/hostname
