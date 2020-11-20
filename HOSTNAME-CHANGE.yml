@@ -6,7 +6,5 @@
   tasks:
     - name: Set hostname
       copy:
-        src: /var/log/comline/MAC
+        src: /var/log/comline/MAC remote_src: yes
         dest: /etc/hostname
-        owner: root
-        group: root
