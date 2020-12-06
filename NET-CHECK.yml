@@ -6,6 +6,11 @@
   tasks:
     - name: Ouput of hostname with his NIC
       set_fact:
-        ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
-      when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether'
-      with_items: "{{ansible_interfaces}}"
+      ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
+    when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether' and hostvars[inventory_hostname]['ansible_' + item]['active'] == false
+    with_items:
+      - "{{ hostvars[inventory_hostname]['ansible_interfaces'] }}"
+
+  - debug:
+      msg: "Free device: {{ item.device }}"
+    with_items: "{{ ansible_eth }}"
