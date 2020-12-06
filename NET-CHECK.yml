@@ -6,7 +6,6 @@
   tasks:
     - name: find interface facts
       debug:
-        msg: "{{ item }}"
-      when: '"active" in item'
-      loop: "{{ output.stdout_lines.0 }}"
-      
+        msg: "{{ item.interface }}"
+      when: item.state == "connected"
+      loop: "{{ output.stdout.0.TABLE_interface.ROW_interface }}"
