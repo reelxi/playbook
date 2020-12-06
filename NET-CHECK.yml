@@ -7,6 +7,6 @@
     - name: find interface facts
       debug:
         msg: "{{ item }}"
-      when: '"connected" in item'
+      when: '"active" in item'
       loop: "{{ output.stdout_lines.0 }}"
       
