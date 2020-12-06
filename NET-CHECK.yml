@@ -4,8 +4,8 @@
   hosts: all
   become: true
   tasks:
-    - name: Ouput of hostname with his NIC
+    - name: define traditional ethernet facts
       set_fact:
-        ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventoryhostname]['ansible' + item]] %}{{ ansible_eth|list }}"
-      when: hostvars[inventory_hostname]['ansible_' + item]['active'] == true
+        ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
+      when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether' and hostvars[inventory_hostname]['ansible_' + item]['active'] == true
       with_items: "{{ansible_interfaces}}"
