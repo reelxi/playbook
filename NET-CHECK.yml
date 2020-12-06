@@ -1,9 +1,13 @@
 ---
 
-- name: CHECK IF NIC IS ACTIVE
+- name: Check if NIC is active
   hosts: all
   become: true
   tasks:
-    - debug:
-      msg: System {{ inventory_hostname }} has interface {{ ansible_default_ipv4.interface }}
-  when: ansible_% is active
+
+- name: define traditional ethernet facts
+  set_fact:
+    ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
+  when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether'
+  with_items:
+    - "{{ hostvars[inventory_hostname]['ansible_interfaces'] }}"
