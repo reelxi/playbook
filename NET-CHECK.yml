@@ -7,5 +7,5 @@
     - name: find interface facts
       debug:
         msg: "{{ hostvars[inventory_hostname]['ansible_%s' | format(item)] }}"
-      with_items: "{{ ansible_interfaces }}"
+      with_items: "{{ ansible_interfaces.active }}"
       
