@@ -4,5 +4,8 @@
   hosts: all
   become: true
   tasks:
-    - name: Lookup NIC, create file and paste info
+    - name: Pause to get some sensitive input
+      pause:
+        prompt: "Enter a secret"
+        echo: no
       
