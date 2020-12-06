@@ -4,7 +4,6 @@
   hosts: all
   become: true
   tasks:
-    - name: find interface facts
-      debug:
-        msg: System {{ inventory_hostname }} has interface {{ ansible_default_ipv4.interface }}
-      when: ansible_% is "active"
+    - debug:
+      msg: System {{ inventory_hostname }} has interface {{ ansible_default_ipv4.interface }}
+  when: ansible_% is active
