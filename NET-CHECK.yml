@@ -4,7 +4,7 @@
   hosts: all
   become: true
   tasks:
-    - name: define traditional ethernet facts
+    - name: gib IP mit Interface wieder
       set_fact:
         ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
       when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether'
