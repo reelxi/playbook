@@ -4,8 +4,8 @@
   hosts: all
   become: true
   tasks:
-    - name: Pause to get some sensitive input
-      pause:
-        prompt: "Enter a secret"
-        echo: no
+    - name: find interface facts
+      debug:
+        msg: "{{ hostvars[inventory_hostname]['ansible_%s' | format(item)] }}"
+      with_items: "{{ ansible_interfaces }}"
       
