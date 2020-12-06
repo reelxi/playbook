@@ -6,6 +6,7 @@
   tasks:
     - name: find interface facts
       debug:
-        msg: "{{ hostvars[inventory_hostname]['ansible_%s' | format(item)] }}"
-      with_items: "{{ ansible_interfaces.active }}"
+        msg: "{{ item }}"
+      when: '"connected" in item'
+      loop: "{{ output.stdout_lines.0 }}"
       
