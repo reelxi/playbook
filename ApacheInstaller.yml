@@ -1,0 +1,10 @@
+﻿---
+  - name: ApacheInstall
+    hosts: all
+    become: yes
+    become_user: root
+    tasks:
+      - name: ensure Apache is at the latest version otherwise install or update
+        yum:
+          name: apache
+          state: latest
